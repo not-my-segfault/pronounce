@@ -15,3 +15,11 @@ If set up right, you can run a single session that grants any user of github a P
 ### Surely there are security considerations with this
 
 There probably are! I'm not skilled enough to fix any if they do arise, so be sure to create an Issue, or even better, fork it and create a Merge Request to fix my terrible code for me!
+
+### Dependencies
+
+- flask
+- pyyaml
+- urllib3
+
+That's it!

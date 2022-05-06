@@ -29,7 +29,6 @@ def basic_error(e):
 def root(username):
     with urlopen(f"{global_conf['user-url']}".replace("{username}", f"{username}")) as data:
         yml = data.read().decode('utf-8')
-        print(yml)
         conf = yaml.load(yml, Loader=yaml.FullLoader)
         print(conf)
     return render_template(
