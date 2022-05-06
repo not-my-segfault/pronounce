@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="icon" href="{{icon}}" type="image/any-icon">
+  <style>
+    body {
+      background: {{color_bg}};
+      color: {{color_fg}};
+    }
+    a {
+      color: {{color_url}};
+    }
+    a:visited {
+      color: {{color_url}};
+    }
+    a:hover {
+      color: {{color_url_hover}};
+    }
+    .wrapper h1 {
+      color: {{color_name}};
+    }
+    .wrapper p {
+      color: {{color_info}};
+    }
+  </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>{{name}}</h1>
+      <br>{{pronouns}}
+      <p>
+      <br>{{contacts}}
+      <br>{{urls}}
+      </p>
+    </div>
+  </body>
+</html>

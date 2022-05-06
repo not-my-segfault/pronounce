@@ -1,0 +1,7 @@
+user-url:          "https://git.tar.black/{username}/pronounce_config/-/raw/main/conf.yml"
+
+colors:
+  background: "#0e0e0eff"
+  foreground: "#eeeeeeff"
+  heading:    "#555555ff"
+  error:      "#eeeeeecc"
