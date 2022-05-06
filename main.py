@@ -29,27 +29,27 @@ def basic_error(e):
 def root(username):
     with urlopen(f"{global_conf['user-url']}".replace("{username}", f"{username}")) as data:
         yml = data.read().decode('utf-8')
+        print(yml)
         conf = yaml.load(yml, Loader=yaml.FullLoader)
-    x = conf['colors']['background'] or global_conf['colors']['background']
-    print(f"x is {x}")
+        print(conf)
     return render_template(
              'index.html',
              color_bg=
-               conf['colors']['background'] or global_conf['colors']['background'],
+               conf['colors']['background'],
              color_fg= 
-               conf['colors']['foreground'] or global_conf['colors']['foreground'],
+               conf['colors']['foreground'],
              color_name= 
-               conf['colors']['name'] or global_conf['colors']['heading'],
+               conf['colors']['name'],
              color_info= 
-               conf['colors']['info'] or global_conf['colors']['text'],
+               conf['colors']['info'],
              color_url= 
-               conf['colors']['url']['normal'] or global_conf['colors']['url']['normal'],
+               conf['colors']['url']['normal'],
              color_url_hover= 
-               conf['colors']['url']['hover'] or global_conf['colors']['url']['hover'],
+               conf['colors']['url']['hover'],
              title= 
-               conf['title'] or f"{global_conf['title']}".replace("{username}", f"{username}"),
+               conf['title'],
              icon= 
-               conf['icon'] or global_conf['icon'],
+               conf['icon'],
              name= 
                conf['name'],
              pronouns= 
