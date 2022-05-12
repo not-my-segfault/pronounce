@@ -5,35 +5,41 @@
     <title>{{title}}</title>
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <link rel="icon" href="{{icon}}" type="image/any-icon">
-  <style>
-    body {
-      background: {{color_bg}};
-      color: {{color_fg}};
-    }
-    a {
-      color: {{color_url}};
-    }
-    a:visited {
-      color: {{color_url}};
-    }
-    a:hover {
-      color: {{color_url_hover}};
-    }
-    .wrapper h1 {
-      color: {{color_name}};
-    }
-    .wrapper p {
-      color: {{color_info}};
-    }
-  </style>
+    <style>
+      body {
+        background: {{color_bg}};
+        color: {{color_fg}};
+      }
+      a {
+        color: {{color_url}};
+      }
+      a:visited {
+        color: {{color_url}};
+      }
+      a:hover {
+        color: {{color_url_hover}};
+      }
+      .wrapper h1 {
+        color: {{color_name}};
+      }
+      .wrapper p {
+        color: {{color_info}};
+      }
+    </style>
   </head>
   <body>
     <div class="wrapper">
       <h1>{{name}}</h1>
       <br>{{pronouns}}
       <p>
-      <br>{{contacts}}
-      <br>{{urls}}
+      <br>
+      {% for contact in contacts %}
+        {{contact}}<br>
+      {% endfor %}
+      <br>
+      {% for url in urls %}
+        <a href="{{url}}"><u>{{url}}</u></a><br>
+      {% endfor %}
       </p>
     </div>
   </body>

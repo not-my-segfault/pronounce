@@ -52,13 +52,11 @@ def root(username):
              name= 
                conf['name'],
              pronouns= 
-               conf['pronouns'],
+     ", ".join(conf['pronouns']),
              contacts= 
                conf['contacts'],
              urls= 
                conf['urls'])
 
 if __name__ == '__main__':
-    app.run(
-      threaded=True,
-      port=8080)
+    app.run(threaded=True)
