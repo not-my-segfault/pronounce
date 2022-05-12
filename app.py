@@ -1,6 +1,4 @@
-from flask import Flask, render_template, request
-from urllib.request import urlopen
-import yaml
+from flask import Flask, render_template, request; from urllib.request import urlopen; import yaml
 
 app = Flask(
         __name__,
@@ -27,10 +25,9 @@ def basic_error(e):
 
 @app.route("/robots.txt")
 def robots():
-    return """
-    User-Agent: *
-    Disallow: /
-    """
+    return """ User-Agent: *
+               Disallow: /
+           """
 
 @app.route("/<username>")
 def root(username):
