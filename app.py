@@ -7,7 +7,7 @@ app = Flask(
         template_folder='static')
 
 with open("conf.yml", "r") as global_conf_file:
-    global_conf = yaml.load(global_conf_file, Loader=yaml.FullLoader)
+    global_conf = yaml.load(global_conf_file, Loader=yaml.UnsafeLoader)
 
 @app.errorhandler(Exception)
 def basic_error(e):
@@ -25,6 +25,13 @@ def basic_error(e):
              color_err=
                global_conf['colors']['text'])
 
+@app.route("/robots.txt")
+def robots():
+    return """
+    User-Agent: *
+    Disallow: /
+    """
+
 @app.route("/<username>")
 def root(username):
     with urlopen(f"{global_conf['user-url']}".replace("{username}", f"{username}")) as data:
@@ -35,27 +42,28 @@ def root(username):
         bg = "url(" + conf['colors']['background'] + ") center center/cover no-repeat"
     else:
         bg = conf['colors']['background']
-
     return render_template(
              'index.html',
              color_bg=
                bg,
              color_fg= 
-               conf['colors']['foreground'],
+               conf.get("colors", {}).get("foreground", global_conf['colors']['foreground']),
              color_name= 
-               conf['colors']['name'],
+               conf.get("colors", {}).get("name", global_conf['colors']['heading']),
              color_info= 
-               conf['colors']['info'],
+               conf.get("colors", {}).get("info", global_conf['colors']['text']),
              color_url= 
-               conf['colors']['url']['normal'],
+               conf.get("colors", {}).get("url", {}).get("normal", global_conf['colors']['url']['normal']),
              color_url_hover= 
-               conf['colors']['url']['hover'],
+               conf.get("colors", {}).get("url", {}).get("hover", global_conf['colors']['url']['hover']),
              title= 
-               conf['title'],
+               conf.get("title", global_conf['title'].replace("{username}", f"{username}")),
              icon= 
-               conf['icon'],
+               conf.get("icon", global_conf['icon']),
              name= 
                conf['name'],
+             age=
+               conf.get("age", ""),
              pronouns= 
      ", ".join(conf['pronouns']),
              contacts= 
