@@ -31,10 +31,15 @@ def root(username):
         yml = data.read().decode('utf-8')
         conf = yaml.load(yml, Loader=yaml.FullLoader)
         print(conf)
+    if conf['colors']['background'].startswith("http"):
+        bg = "url(" + conf['colors']['background'] + ") center center/cover no-repeat"
+    else:
+        bg = conf['colors']['background']
+
     return render_template(
              'index.html',
              color_bg=
-               conf['colors']['background'],
+               bg,
              color_fg= 
                conf['colors']['foreground'],
              color_name= 
@@ -57,6 +62,3 @@ def root(username):
                conf['contacts'],
              urls= 
                conf['urls'])
-
-if __name__ == '__main__':
-    app.run(threaded=True)
