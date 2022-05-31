@@ -22,4 +22,4 @@ There probably are! I'm not skilled enough to fix any if they do arise, so be su
 - pyyaml
 - urllib3
 
-That's it!
+:) That's it!
