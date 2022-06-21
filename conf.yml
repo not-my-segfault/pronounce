@@ -1,13 +1,13 @@
-title:        "{username}'s pronounce page"
-icon:         "favicon.png"
-user-url:     "https://raw.githubusercontent.com/{username}/{username}/main/pronounce.yml"
+title: "{username}'s pronounce page"
+icon: "favicon.png"
+user-url: "https://raw.githubusercontent.com/{username}/{username}/main/pronounce.yml"
 
 colors:
   background: "#0e0e0eff"
   foreground: "#eeeeeeff"
-  heading:    "#555555ff"
-  text:       "#eeeeeecc"
+  heading: "#555555ff"
+  text: "#eeeeeecc"
 
   url:
-    normal:   "#eeeeee9d"
-    hover:    "#eeeeeeb9"
+    normal: "#eeeeee9d"
+    hover: "#eeeeeeb9"

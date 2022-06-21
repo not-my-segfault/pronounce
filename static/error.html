@@ -1,68 +1,102 @@
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>{{error}}</title>
-    <link rel="icon" href="{{icon}}" type="image/any-icon">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      -webkit-user-select: none;
-         -moz-user-select: none;
-          -ms-user-select: none;
-              user-select: none;
-    }
-    ::-webkit-scrollbar {
-      display: none;
-    }
-    .wrapper {
-      position: absolute;
-      top: 50%;
-      right: 50%;
-      -webkit-transform: translate(50%, -50%);
-              transform: translate(50%, -50%);
-    }
-    ul {
-      margin-top: 5px;
-      list-style: none;
-      white-space: nowrap;
-    }
-    li {
-      display: inline-block;
-      margin-right: 3px;
-    }
-    a {
-      -webkit-transition: ease-in-out 0.3s;
-      transition: ease-in-out 0.3s;
-      text-decoration: none;
-    }
-    u {
-        text-decoration: underline;
-        text-decoration-style: dashed;
-    }
-    body {
-      font-family: 'Inconsolata', monospace;
-      background: {{color_bg}};
-      color: {{color_fg}};
-    }
-    .wrapper h1 {
-      color: {{color_h}};
-    }
-    .wrapper p {
-      color: {{color_err}};
-    }
-  </style>
-  </head>
-  <body>
-    <div class="wrapper">
-      <h1>something ain't working</h1>
-      <br>send this shit to the webmaster:
-      <p>
-      <br>{{error}}<br>
-      <br><a>{{url}}</a><br>
-      <br>{{conf}}
-      </p>
-    </div>
-  </body>
+    <link href="{{icon}}" rel="icon" type="image/any-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .wrapper {
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            -webkit-transform: translate(50%, -50%);
+            transform: translate(50%, -50%);
+        }
+
+        ul {
+            margin-top: 5px;
+            list-style: none;
+            white-space: nowrap;
+        }
+
+        li {
+            display: inline-block;
+            margin-right: 3px;
+        }
+
+        a {
+            -webkit-transition: ease-in-out 0.3s;
+            transition: ease-in-out 0.3s;
+            text-decoration: none;
+        }
+
+        u {
+            text-decoration: underline;
+            text-decoration-style: dashed;
+        }
+
+        body {
+            font-family: 'Inconsolata', monospace;
+
+        background: {
+
+        {
+            color_bg
+        }
+        }
+        ;
+        color: {
+
+        {
+            color_fg
+        }
+        }
+        ;
+        }
+        .wrapper h1 {
+
+        color: {
+
+        {
+            color_h
+        }
+        }
+        ;
+        }
+        .wrapper p {
+
+        color: {
+
+        {
+            color_err
+        }
+        }
+        ;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <h1>something ain't working</h1>
+    <br>send this shit to the webmaster:
+    <p>
+        <br>{{error}}<br>
+        <br><a>{{url}}</a><br>
+        <br>{{conf}}
+    </p>
+</div>
+</body>
 </html>
