@@ -40,7 +40,41 @@ def robots():
 
 @app.route("/")
 def git():
-    return redirect("https://github.com/ihatethefrench/pronounce")
+    with open("frontpage.yml", "r") as file:
+        conf = yaml.load(file, Loader=yaml.FullLoader)
+        print(conf)
+    username = conf.get("name", {})
+    return render_template(
+        'index.html',
+        color_bg=
+        conf.get("colors", {}).get("background", global_conf['colors']['background']),
+        color_fg=
+        conf.get("colors", {}).get("foreground", global_conf['colors']['foreground']),
+        color_name=
+        conf.get("colors", {}).get("name", global_conf['colors']['heading']),
+        color_info=
+        conf.get("colors", {}).get("info", global_conf['colors']['text']),
+        color_url=
+        conf.get("colors", {}).get("url", {}).get("normal", global_conf['colors']['url']['normal']),
+        color_url_hover=
+        conf.get("colors", {}).get("url", {}).get("hover", global_conf['colors']['url']['hover']),
+        title=
+        conf.get("title", global_conf['title'].replace("{username}", f"{username}")),
+        icon=
+        conf.get("icon", global_conf['icon']),
+        name=
+        conf['name'],
+        age=
+        conf.get("age", ""),
+        pronouns=
+        ", ".join(
+            conf['pronouns']
+        ),
+        contacts=
+        conf['contacts'],
+        urls=
+        conf['urls']
+    )
 
 
 @app.route("/<username>")
