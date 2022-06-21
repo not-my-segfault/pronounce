@@ -1,7 +1,7 @@
 from urllib.request import urlopen
 
 import yaml
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 app = Flask(
     __name__,
@@ -36,6 +36,11 @@ def basic_error(e):
 @app.route("/robots.txt")
 def robots():
     return "User-Agent: * Disallow: /"
+
+
+@app.route("/")
+def git():
+    return redirect("https://github.com/ihatethefrench/pronounce")
 
 
 @app.route("/<username>")
